@@ -1,5 +1,6 @@
 /// <reference path="../node_modules/Agent.Tasks/definitions/vsts-task-lib.d.ts" />
 
+// deprecated package https://www.npmjs.com/package/vsts-task-lib
 import tl = require('vsts-task-lib/task');
 
 var allureRunner = require.resolve('allure-commandline/bin/allure');
