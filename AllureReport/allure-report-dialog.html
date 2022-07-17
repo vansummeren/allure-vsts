@@ -9,13 +9,17 @@
             var buildNumber = VSS.getConfiguration().buildNumber;
             VSS.getService(VSS.ServiceIds.ExtensionData).then(function(dataService) {
                 dataService.getValue('baseUrl', {scopeType: 'Default'}).then(function(baseUrl) {
-                    baseUrl = baseUrl.replace(/\/$/, '');
-                    var iframe = document.getElementById('allure-report-iframe');
-                    iframe.src = baseUrl + '/' + buildNumber + "/";
+                    showReport(baseUrl, buildNumber);
                     VSS.notifyLoadSucceeded();
                 });
             });
         });
+
+        function showReport(baseUrl, buildNumber) {
+            var reportUrl = baseUrl.replace(/\$\(Build\.BuildNumber\)/ig, buildNumber);
+            var iframe = document.getElementById('allure-report-iframe');
+            iframe.src = reportUrl;
+        }
     </script>
 
     <style>

@@ -1,6 +1,6 @@
 This extension allows you to generate and view Allure test reports right from the Visual Studio Team Services interface.
 
-**Please note** that due too some limitation in the current version of Team Services API the Allure Generate Build Step will only generate the Allure report and save it as a build artifact. To enable "Open Allure Report" option you will need to add additional build step to publish the report somewhere. For instance you can create a simple Azure Web App and upload reports there using Build Task extension like [FTP Upload](https://marketplace.visualstudio.com/items?itemName=januskamphansen.ftpupload-task). You website should support HTTPS.
+**Please note** that due too some limitation in the current version of Team Services API the Allure Generate Build Step will only generate the Allure report and save it as a build artifact. To enable "Open Allure Report" option you will need to add additional build step to publish the report somewhere. For instance you can create a simple Azure Web App (or use github pages) and upload reports there using Build Task extension like [FTP Upload](https://marketplace.visualstudio.com/items?itemName=januskamphansen.ftpupload-task). You website should support HTTPS.
 
 **Please note** If you use Azure Website or IIS in general some file types used by Allure are not enabled by default. Please, add mimetypes as shown below to your web.config in order to enable support of .json and .woff file types.
 
@@ -15,7 +15,7 @@ This extension allows you to generate and view Allure test reports right from th
 </configuration> 
 ```
 
-When you have your website up and running we will use url like [BaseUrl]/$(Build.BuildNumber) to open a report for the corresponding build. You will need to set BaseUrl property on the Allure settings page in the Project settings:
+When you have your website up and running we will use url like [BaseUrl] to open a report for the corresponding build. You will need to set BaseUrl property on the Allure settings page in the Project settings:
 
 ![Allure Reports Settings](images/allure-reports-baseurl.png)
 

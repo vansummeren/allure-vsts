@@ -21,7 +21,7 @@
     VSS.init({explicitNotifyLoaded: true, usePlatformScripts: true});
     VSS.ready(function() {
         VSS.getService(VSS.ServiceIds.ExtensionData).then(function(dataService) {
-            dataService.getValue('baseUrl', {scopeType: 'Default'}).then(function(value) {
+            dataService.getValue('baseUrl').then(function(value) {
                 document.querySelector('[name="baseUrl"]').value = value;
                 VSS.notifyLoadSucceeded();
             });
@@ -51,7 +51,7 @@
     <div class="ms-TextField">
         <label class="ms-Label" for="baseUrl">Base url</label>
         <input class="ms-TextField-field" id="baseUrl" name="baseUrl" type="url">
-        <span class="ms-TextField-description">Base url where you host your Allure reports</span>
+        <span class="ms-TextField-description">Base url where you host your Allure reports, use varible $(Build.BuildNumber) for replace it on corresponding build number</span>
     </div>
     <button class="ms-Button ms-Button--primary">
         <span class="ms-Button-label">Save</span>

@@ -1,5 +1,5 @@
 {
-  "id": "5c975f9d-1c3a-469f-b7c2-8907bf3eacfb",
+  "id": "5c975f9d-1c3a-469f-b7c2-8907bf3eacf1",
   "name": "AllureGenerate",
   "friendlyName": "Generate Allure Report",
   "description": "Generates Allure report based on the test results",
@@ -8,10 +8,10 @@
   "visibility": [
     "Build"
   ],
-  "author": "Molecula",
+  "author": "Molecula (fork by ivang7)",
   "version": {
     "Major": 1,
-    "Minor": 0,
+    "Minor": 3,
     "Patch": 0
   },
   "demands": [

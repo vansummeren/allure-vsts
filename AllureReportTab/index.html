@@ -24,9 +24,9 @@
         });
 
         function showReport(baseUrl, buildNumber) {
-            baseUrl = baseUrl.replace(/\/$/, '');
+            var reportUrl = baseUrl.replace(/\$\(Build\.BuildNumber\)/ig, buildNumber);
             var iframe = document.getElementById('allure-report-iframe');
-            iframe.src = baseUrl + '/' + buildNumber + "/";
+            iframe.src = reportUrl;
         }
     </script>
 
