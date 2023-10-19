@@ -4,13 +4,29 @@
     <title>Allure Report</title>
     <script src="../node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
     <script type="text/javascript">
+        function getParamterName() {
+        return new Promise(function (resolve, reject) {
+
+            VSS.ready(function(){
+                    let web = VSS.getWebContext();
+                    let projectId = web['project'].id;                    
+                    let parameterName = 'allure-base-url-' +projectId;
+                    resolve(parameterName);
+                })
+        })
+    }
+
         VSS.init({explicitNotifyLoaded: true, usePlatformScripts: true});
+        
         VSS.ready(function() {
             var buildNumber = VSS.getConfiguration().buildNumber;
             VSS.getService(VSS.ServiceIds.ExtensionData).then(function(dataService) {
-                dataService.getValue('baseUrl', {scopeType: 'Default'}).then(function(baseUrl) {
-                    showReport(baseUrl, buildNumber);
-                    VSS.notifyLoadSucceeded();
+                let parameterName = getParamterName().then(function(parameterName) {
+                console.log('parameterName', parameterName);
+                    dataService.getValue(parameterName, {scopeType: 'Default'}).then(function(baseUrl) {
+                        showReport(baseUrl, buildNumber);
+                        VSS.notifyLoadSucceeded();
+                    });
                 });
             });
         });

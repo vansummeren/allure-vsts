@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "allure-test-reports",
   "name": "Allure Test Reports",
-  "version": "1.8",
+  "version": "2.0",
   "publisher": "twentythreech",
   "public": true,
   "targets": [
@@ -10,7 +10,7 @@
       "id": "Microsoft.VisualStudio.Services"
     }
   ],
-  "description": "Publish test results in Allure report format",
+  "description": "Publish test results in Allure report format, configurable per project.",
   "categories": [
     "Azure Test Plans",
     "Azure Pipelines"
@@ -47,9 +47,6 @@
   "links": {
     "learn": {
       "uri": "https://github.com/allure-framework/allure-core"
-    },
-    "getstarted": {
-      "uri": "https://ivang7.visualstudio.com/Allure-Report-Public/_build/results?buildId=243&view=results"
     }
   },
   "icons": {
