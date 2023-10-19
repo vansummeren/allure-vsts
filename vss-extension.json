@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "allure-test-reports",
   "name": "Allure Test Reports",
-  "version": "1.4",
+  "version": "1.8",
   "publisher": "twentythreech",
   "public": true,
   "targets": [
@@ -82,7 +82,7 @@
   ],
   "repository": {
     "type": "git",
-    "uri": "https://github.com/ivang7/allure-vsts/"
+    "uri": "https://github.com/vansummeren/allure-vsts"
   },
   "contributions": [
     {

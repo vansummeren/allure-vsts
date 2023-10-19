@@ -18,12 +18,38 @@
 <body>
 <script src="../node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
 <script>
+
+    // Sets unique data storage name for each project
+    function getVSSWebContext() {
+        return new Promise(function(resolve, reject) {
+                VSS.ready(function(){
+                    let web = VSS.getWebContext();
+                    resolve(web);
+                })
+        })
+    }
+
+    function getParamterName() {
+        return new Promise(function (resolve, reject) {
+
+            VSS.ready(function(){
+                    let web = VSS.getWebContext();
+                    let projectId = web['project'].id;                    
+                    let parameterName = 'allure-base-url-' +projectId;
+                    resolve(parameterName);
+                })
+        })
+    }
+
     VSS.init({explicitNotifyLoaded: true, usePlatformScripts: true});
     VSS.ready(function() {
         VSS.getService(VSS.ServiceIds.ExtensionData).then(function(dataService) {
-            dataService.getValue('baseUrl').then(function(value) {
+            let parameterName = getParamterName().then(function(parameterName) {
+                console.log('parameterName', parameterName);
+                dataService.getValue(parameterName).then(function(value) {
                 document.querySelector('[name="baseUrl"]').value = value;
                 VSS.notifyLoadSucceeded();
+                });
             });
         });
     });
@@ -34,12 +60,16 @@
             var value = document.querySelector('[name="baseUrl"]').value;
             if(value.match(/^https:\/\//)) {
                 VSS.getService(VSS.ServiceIds.ExtensionData).then(function(dataService) {
-                    dataService.setValue('baseUrl', value, {scopeType: 'Default'})
+                    let parameterName = getParamterName().then(function(parameterName) {
+                        console.log('parameterName', parameterName);
+
+                        dataService.setValue(parameterName, value, {scopeType: 'Default'})
                             .then(function() {
                                 error.innerText = '';
                             }, function(e) {
                                 error.innerText = e.responseText;
-                            });
+                        });
+                    });
                 });
             } else {
                 error.innerText = 'Base url must be url starting with "https"'
