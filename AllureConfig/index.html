@@ -19,16 +19,6 @@
 <script src="../node_modules/vss-web-extension-sdk/lib/VSS.SDK.min.js"></script>
 <script>
 
-    // Sets unique data storage name for each project
-    function getVSSWebContext() {
-        return new Promise(function(resolve, reject) {
-                VSS.ready(function(){
-                    let web = VSS.getWebContext();
-                    resolve(web);
-                })
-        })
-    }
-
     function getParamterName() {
         return new Promise(function (resolve, reject) {
 
