@@ -19,6 +19,8 @@ When you have your website up and running we will use url like [BaseUrl] to open
 
 ![Allure Reports Settings](images/allure-reports-baseurl.png)
 
+**The configuration is stored in Azure DevOps per project, meaning the projects are not sharing the same BaseUrl anymore.**
+
 ## Why to use Allure
 
 There are lots of cool testing frameworks for different programming languages. Unfortunately only few of them can provide good representation of test execution output. Allure is an open-source framework designed to create test execution reports clear to everyone in the team.
