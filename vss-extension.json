@@ -2,8 +2,8 @@
   "manifestVersion": 1,
   "id": "allure-test-reports",
   "name": "Allure Test Reports",
-  "version": "1.3",
-  "publisher": "ivang7",
+  "version": "1.4",
+  "publisher": "twentythreech",
   "public": true,
   "targets": [
     {
@@ -12,7 +12,7 @@
   ],
   "description": "Publish test results in Allure report format",
   "categories": [
-    "Test",
+    "Azure Test Plans",
     "Azure Pipelines"
   ],
   "screenshots": [
